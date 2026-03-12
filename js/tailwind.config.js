@@ -12,6 +12,7 @@ tailwind.config = {
                     badge: '#000000',
                     text: '#1C1D1D',
                     subtle: '#707070',
+                    sale: '#5C7962',
                 }
             }
         }

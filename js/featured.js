@@ -25,6 +25,20 @@
   `;
   }
 
+  function buildSaleBadge(saleBadge) {
+    if (!saleBadge) return "";
+    return `
+    <div class="absolute top-1 right-1 md:top-2 md:right-2 z-10 leading-[0]">
+      <span class="inline-block font-bebas font-normal text-[8px] md:text-[10px] leading-none 
+                   tracking-[0.04em] md:tracking-[0.06em] uppercase text-center
+                   border border-brand-badge bg-brand-sale text-[#FFFFFA] 
+                   px-2 py-1 rounded-full whitespace-nowrap">
+        ${saleBadge}
+      </span>
+    </div>
+  `;
+  }
+
   function buildImages(product) {
     return `
     <img
@@ -71,6 +85,7 @@
         <div class="product-card__image-wrapper relative overflow-hidden 
                     rounded-lg aspect-square mb-4 bg-gray-100">
           ${buildBadge(product.badge)}
+          ${buildSaleBadge(product.saleBadge)}
           ${buildImages(product)}
         </div>
         <div class="product-card__info px-1">
