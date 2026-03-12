@@ -57,7 +57,7 @@
                leading-[100%] tracking-[0.03em] text-brand-text mb-2">
       ${product.name}
     </h3>
-    <div class="flex items-center gap-1 mb-1">
+    <div class="flex items-center gap-1 mb-2">
       <div class="flex items-center gap-0.5"
            aria-label="${product.rating} out of 5 stars"
            role="img">
