@@ -3,12 +3,18 @@
   -ms-overflow-style: none;
 }
 
+#product-slider::after {
+  content: '';
+  flex-shrink: 0;
+  width: max(2rem, calc((100vw - 80rem) / 2 + 2rem));
+}
+
 #product-slider::-webkit-scrollbar {
   display: none;
 }
 
 .custom-scrollbar__thumb {
-  transition: height 0.2s ease, top 0.2s ease;
+  transition: height 0.2s ease;
 }
 
 .custom-scrollbar:hover .custom-scrollbar__thumb,

@@ -13,7 +13,7 @@
 
   const badgeStyles = {
     outline: "border border-brand-badge text-brand-badge bg-white",
-    filled:  "border border-brand-badge bg-brand-sale text-[#FFFFFA]",
+    filled:  "border border-brand-badge bg-brand-sale text-white",
   };
   function buildPill(text, { position = "left", variant = "outline" } = {}) {
     if (!text) return "";
@@ -64,7 +64,7 @@
         ${buildStars(product.rating)}
       </div>
       <span class="font-normal text-[11px] md:text-xs md:leading-none text-brand-subtle">
-        | ${product.reviews.toLocaleString()} Reviews
+         ${product.reviews.toLocaleString()} Reviews
       </span>
     </div>
     <p class="font-medium text-base leading-none text-brand-text">${product.price}</p>
@@ -77,7 +77,7 @@
       <article>
         <div class="product-card__image-wrapper relative overflow-hidden 
                     rounded-lg aspect-square mb-4 bg-gray-100">
-          ${(product.pills || []).map(p => buildPill(p.text, p)).join("")}
+          ${(product.pills || []).map(p => buildPill(p.text, { position: p.position, variant: p.variant })).join("")}
           ${buildImages(product)}
         </div>
         <div class="product-card__info px-1">

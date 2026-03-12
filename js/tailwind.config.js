@@ -13,6 +13,7 @@ tailwind.config = {
                     text: '#1C1D1D',
                     subtle: '#707070',
                     sale: '#5C7962',
+                    link: '#5C553A',
                 }
             }
         }
