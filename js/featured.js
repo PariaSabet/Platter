@@ -11,29 +11,22 @@
     return html;
   }
 
-  function buildBadge(badge) {
-    if (!badge) return "";
+  const badgeStyles = {
+    outline: "border border-brand-badge text-brand-badge bg-white",
+    filled:  "border border-brand-badge bg-brand-sale text-[#FFFFFA]",
+  };
+  function buildPill(text, { position = "left", variant = "outline" } = {}) {
+    if (!text) return "";
+    const pos = position === "right"
+      ? "right-1 md:right-2"
+      : "left-1 md:left-2";
     return `
-    <div class="absolute top-1 left-1 md:top-2 md:left-2 z-10 leading-[0]">
-      <span class="inline-block font-bebas font-normal text-[8px] md:text-[10px] leading-none 
+    <div class="absolute top-1 ${pos} md:top-2 z-10 leading-[0]">
+      <span class="inline-block font-bebas font-normal text-[8px] md:text-[10px] leading-[100%] 
                    tracking-[0.04em] md:tracking-[0.06em] uppercase text-center
-                   border border-brand-badge text-brand-badge bg-white 
+                   ${badgeStyles[variant]} 
                    px-2 py-1 rounded-full whitespace-nowrap">
-        ${badge}
-      </span>
-    </div>
-  `;
-  }
-
-  function buildSaleBadge(saleBadge) {
-    if (!saleBadge) return "";
-    return `
-    <div class="absolute top-1 right-1 md:top-2 md:right-2 z-10 leading-[0]">
-      <span class="inline-block font-bebas font-normal text-[8px] md:text-[10px] leading-none 
-                   tracking-[0.04em] md:tracking-[0.06em] uppercase text-center
-                   border border-brand-badge bg-brand-sale text-[#FFFFFA] 
-                   px-2 py-1 rounded-full whitespace-nowrap">
-        ${saleBadge}
+        ${text}
       </span>
     </div>
   `;
@@ -84,8 +77,7 @@
       <article>
         <div class="product-card__image-wrapper relative overflow-hidden 
                     rounded-lg aspect-square mb-4 bg-gray-100">
-          ${buildBadge(product.badge)}
-          ${buildSaleBadge(product.saleBadge)}
+          ${(product.pills || []).map(p => buildPill(p.text, p)).join("")}
           ${buildImages(product)}
         </div>
         <div class="product-card__info px-1">
