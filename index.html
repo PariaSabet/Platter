@@ -31,8 +31,8 @@
 
     <section aria-label="Best Sellers" class="py-10">
 
-        <header class="flex items-center justify-between mb-6 px-4 md:px-8 max-w-7xl mx-auto">
-            <h2 class="font-serif font-black text-[40px] leading-[1.2] tracking-[-0.01em] text-brand-heading">
+        <header class="flex items-center justify-center md:justify-between mb-6 px-4 md:px-8 max-w-7xl mx-auto">
+            <h2 class="font-serif font-bold text-[28px] leading-[126%] tracking-[-0.01em] text-brand-heading text-center md:font-black md:text-[40px] md:leading-[120%] md:text-left">
                 Best Sellers
             </h2>
             <a href="#"
@@ -44,9 +44,13 @@
         </header>
 
         <div class="hidden md:block pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
-            <ul id="product-slider" class="flex gap-4 overflow-x-auto pb-4 scroll-smooth" role="list">
+            <ul id="product-slider" class="flex gap-4 overflow-x-auto pb-8 scroll-smooth" role="list">
                 <!-- Cards -->
             </ul>
+            <div id="slider-scrollbar" class="custom-scrollbar relative h-[6px] bg-transparent cursor-pointer mt-2 mr-8">
+                <div class="absolute top-1/2 left-0 w-full h-[2px] bg-[#E5E5E5] rounded -translate-y-1/2"></div>
+                <div class="custom-scrollbar__thumb absolute top-1/2 left-0 h-[2px] -translate-y-1/2 bg-brand-text rounded min-w-[40px]"></div>
+            </div>
         </div>
 
         <div class="md:hidden px-4">

@@ -14,10 +14,11 @@
   function buildBadge(badge) {
     if (!badge) return "";
     return `
-    <div class="absolute top-3 left-3 z-10">
-      <span class="border border-brand-badge text-brand-badge bg-white 
-                   text-[10px] font-bold uppercase tracking-wider 
-                   px-2 py-1 rounded-full">
+    <div class="absolute top-1 left-1 md:top-2 md:left-2 z-10 leading-[0]">
+      <span class="inline-block font-bebas font-normal text-[8px] md:text-[10px] leading-none 
+                   tracking-[0.04em] md:tracking-[0.06em] uppercase text-center
+                   border border-brand-badge text-brand-badge bg-white 
+                   px-2 py-1 rounded-full whitespace-nowrap">
         ${badge}
       </span>
     </div>
@@ -45,8 +46,8 @@
 
   function buildMeta(product) {
     return `
-    <h3 class="text-[11px] font-semibold uppercase tracking-wide 
-               leading-snug text-brand-text mb-1">
+    <h3 class="font-bebas text-[18px] font-normal uppercase 
+               leading-[100%] tracking-[0.03em] text-brand-text mb-2">
       ${product.name}
     </h3>
     <div class="flex items-center gap-1 mb-1">
@@ -55,20 +56,20 @@
            role="img">
         ${buildStars(product.rating)}
       </div>
-      <span class="text-[11px] text-brand-subtle">
-        ${product.reviews.toLocaleString()} Reviews
+      <span class="font-normal text-[11px] md:text-xs md:leading-none text-brand-subtle">
+        | ${product.reviews.toLocaleString()} Reviews
       </span>
     </div>
-    <p class="text-sm font-bold text-brand-text">${product.price}</p>
+    <p class="font-medium text-base leading-none text-brand-text">${product.price}</p>
   `;
   }
 
   function buildCard(product) {
     return `
-    <li class="group flex-shrink-0 w-[158px] md:w-[220px] cursor-pointer">
+    <li class="group flex-shrink-0 w-full md:w-[355px] cursor-pointer">
       <article>
         <div class="product-card__image-wrapper relative overflow-hidden 
-                    rounded-lg aspect-square mb-3 bg-gray-100">
+                    rounded-lg aspect-square mb-4 bg-gray-100">
           ${buildBadge(product.badge)}
           ${buildImages(product)}
         </div>
@@ -109,7 +110,6 @@
 
       if (isOpen) {
         if (cachedHeight == null) {
-          // Measure while expanded so layout is complete; avoid reading scrollHeight
           extra.style.maxHeight = "none";
           cachedHeight = extra.scrollHeight;
           extra.style.maxHeight = "0";
@@ -128,6 +128,90 @@
     });
   }
 
+  function initCustomScrollbar() {
+    const slider = document.getElementById("product-slider");
+    const bar = document.getElementById("slider-scrollbar");
+    if (!slider || !bar) return;
+
+    const thumb = bar.querySelector(".custom-scrollbar__thumb");
+    let dragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    function updateThumb() {
+      const scrollWidth = slider.scrollWidth;
+      const clientWidth = slider.clientWidth;
+      if (scrollWidth <= clientWidth) {
+        bar.style.display = "none";
+        return;
+      }
+      bar.style.display = "block";
+      const ratio = clientWidth / scrollWidth;
+      const thumbWidth = Math.max(ratio * bar.clientWidth, 40);
+      const maxThumbLeft = bar.clientWidth - thumbWidth;
+      const scrollRatio = slider.scrollLeft / (scrollWidth - clientWidth);
+      thumb.style.width = thumbWidth + "px";
+      thumb.style.left = scrollRatio * maxThumbLeft + "px";
+    }
+
+    slider.addEventListener("scroll", updateThumb);
+    window.addEventListener("resize", updateThumb);
+
+    bar.addEventListener("mousedown", function (e) {
+      const rect = bar.getBoundingClientRect();
+      const thumbRect = thumb.getBoundingClientRect();
+
+      if (e.clientX < thumbRect.left || e.clientX > thumbRect.right) {
+        const clickRatio = (e.clientX - rect.left) / rect.width;
+        slider.scrollLeft = clickRatio * (slider.scrollWidth - slider.clientWidth);
+      }
+
+      dragging = true;
+      startX = e.clientX;
+      startScrollLeft = slider.scrollLeft;
+      bar.classList.add("dragging");
+      e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", function (e) {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      const trackWidth = bar.clientWidth;
+      const scrollableWidth = slider.scrollWidth - slider.clientWidth;
+      slider.scrollLeft = startScrollLeft + (dx / trackWidth) * scrollableWidth;
+    });
+
+    document.addEventListener("mouseup", function () {
+      if (!dragging) return;
+      dragging = false;
+      bar.classList.remove("dragging");
+    });
+
+    bar.addEventListener("touchstart", function (e) {
+      dragging = true;
+      startX = e.touches[0].clientX;
+      startScrollLeft = slider.scrollLeft;
+      bar.classList.add("dragging");
+    }, { passive: true });
+
+    document.addEventListener("touchmove", function (e) {
+      if (!dragging) return;
+      const dx = e.touches[0].clientX - startX;
+      const trackWidth = bar.clientWidth;
+      const scrollableWidth = slider.scrollWidth - slider.clientWidth;
+      slider.scrollLeft = startScrollLeft + (dx / trackWidth) * scrollableWidth;
+    });
+
+    document.addEventListener("touchend", function () {
+      if (!dragging) return;
+      dragging = false;
+      bar.classList.remove("dragging");
+    });
+
+    updateThumb();
+    window.addEventListener("load", updateThumb);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     if (typeof bestSellers === "undefined") {
       console.error("bestSellers are not defined");
@@ -136,5 +220,6 @@
     renderDesktop();
     renderMobile();
     initShowMore();
+    initCustomScrollbar();
   });
 })();
