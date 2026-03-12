@@ -1,44 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100..900;1,100..900&family=Source+Serif+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            bebas: ['"Bebas Neue"', 'sans-serif'],
-            poppins: ['Poppins', 'sans-serif'],
-            serif: ['"Source Serif Pro"', 'Georgia', 'serif'],
-          },
-          colors: {
-            brand: {
-              heading: '#231F20',
-              badge:   '#000000',
-              text:    '#1C1D1D',
-              subtle:  '#707070',   
-            }
-          }
-        }
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platter</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100..900;1,100..900&family=Source+Serif+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-poppins bg-stone-50 text-stone-900">
-  <section class="featured-collection py-16 px-4 md:px-8 max-w-7xl mx-auto">
-    <h2 class="font-serif font-black text-[40px] leading-[1.2] tracking-[-0.01em] text-brand-heading mb-[35px]">Best Sellers</h2>
-    <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    </div>
-  </section>
-  <script src="js/products.js"></script>
-  <script src="js/featured.js"></script>
+
+<body class="font-poppins bg-white text-brand-text overflow-x-hidden">
+
+    <section aria-label="Best Sellers" class="py-10">
+
+        <header class="flex items-center justify-between mb-6 px-4 md:px-8 max-w-7xl mx-auto">
+            <h2 class="font-serif font-black text-[40px] leading-[1.2] tracking-[-0.01em] text-brand-heading">
+                Best Sellers
+            </h2>
+            <a href="#"
+                class="hidden md:flex items-center gap-1 text-sm font-semibold leading-[140%] tracking-[0.03em] text-[#5C553A] hover:opacity-70 transition-opacity">
+                Shop All Best Sellers <span aria-hidden="true">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+        </header>
+
+        <div class="hidden md:block pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+            <ul id="product-slider" class="flex gap-4 overflow-x-auto pb-4 scroll-smooth" role="list">
+                <!-- Cards -->
+            </ul>
+        </div>
+
+        <div class="md:hidden px-4">
+
+            <ul id="product-grid-mobile" class="grid grid-cols-2 gap-4" role="list">
+                <!-- Cards-->
+            </ul>
+            <ul id="extra-cards" class="grid grid-cols-2 gap-4 mt-4" role="list" aria-hidden="true"
+                style="max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+                <!-- Cards -->
+            </ul>
+
+            <div class="mt-6">
+                <button id="show-more-btn"
+                    class="w-full bg-brand-text text-white text-sm font-semibold py-3 px-6 rounded-md hover:opacity-80 transition-opacity"
+                    aria-expanded="false" aria-controls="extra-cards">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="js/products.js"></script>
+    <script src="js/featured.js"></script>
 </body>
+
 </html>

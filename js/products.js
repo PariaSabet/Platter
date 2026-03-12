@@ -1,100 +1,104 @@
-const products = [
-  {
-    id: 1,
-    name: "Classic Ceramic Bowl Set",
-    price: 42,
-    image:
-      "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 2,
-    name: "Handcrafted Serving Platter",
-    price: 68,
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 3,
-    name: "Stoneware Dinner Plate",
-    price: 34,
-    image:
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 4,
-    name: "Minimalist Mug Duo",
-    price: 28,
-    image:
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 5,
-    name: "Classic Ceramic Bowl Set",
-    price: 42,
-    image:
-      "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 6,
-    name: "Handcrafted Serving Platter",
-    price: 68,
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 7,
-    name: "Stoneware Dinner Plate",
-    price: 34,
-    image:
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 8,
-    name: "Minimalist Mug Duo",
-    price: 28,
-    image:
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 9,
-    name: "Classic Ceramic Bowl Set",
-    price: 42,
-    image:
-      "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 10,
-    name: "Handcrafted Serving Platter",
-    price: 68,
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },
-  {
-    id: 11,
-    name: "Stoneware Dinner Plate",
-    price: 34,
-    image:
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  },    
-  {
-    id: 12,
-    name: "Minimalist Mug Duo",
-    price: 28,
-    image:
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
-    badge: "Best Seller",
-  }
-];
 
-const bestSellers = products;
+const bestSellers = [
+    {
+      id: 1,
+      name: "Outside Vibes T-Shirt Sunshine",
+      price: "$104.95",
+      rating: 4,
+      reviews: 1234,
+      badge: "Best Seller",
+      image:      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
+      imageHover: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600&q=80",
+    },
+    {
+      id: 2,
+      name: "Hike Bottle Outside Vibes Forest Green",
+      price: "$104.95",
+      rating: 4,
+      reviews: 1234,
+      badge: "Best Seller",
+      image:      "https://images.unsplash.com/photo-1509762774605-f07235a08f1f?w=600&q=80",
+      imageHover: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=600&q=80",
+    },
+    {
+      id: 3,
+      name: "Rest In Nature T-Shirt Charcoal",
+      price: "$104.95",
+      rating: 4,
+      reviews: 1234,
+      badge: "Best Seller",
+      image:      "https://images.unsplash.com/photo-1608667508764-33cf0726b13a?w=600&q=80",
+      imageHover: "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&q=80",
+    },
+    {
+      id: 4,
+      name: "Outside Vibes Cap Forest Green",
+      price: "$104.95",
+      rating: 4,
+      reviews: 1234,
+      badge: "Best Seller",
+      image:      "https://images.unsplash.com/photo-1686152059022-7622bbda31c6?w=600&q=80",
+      imageHover: "https://images.unsplash.com/photo-1686152027649-aabdbb4a988a?w=600&q=80",
+    },
+    {
+      id: 5,
+      name: "Rest In Nature T-Shirt Charcoal",
+      price: "$104.95",
+      rating: 5,
+      reviews: 1234,
+      badge: "Best Seller",
+      image:      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600&q=80",
+      imageHover: "https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?w=600&q=80",
+    },
+    {
+        id: 6,
+        name: "Outside Vibes T-Shirt Sunshine",
+        price: "$104.95",
+        rating: 4,
+        reviews: 1234,
+        badge: "Best Seller",
+        image:      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
+        imageHover: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600&q=80",
+      },
+      {
+        id: 7,
+        name: "Hike Bottle Outside Vibes Forest Green",
+        price: "$104.95",
+        rating: 4,
+        reviews: 1234,
+        badge: "Best Seller",
+        image:      "https://images.unsplash.com/photo-1509762774605-f07235a08f1f?w=600&q=80",
+        imageHover: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=600&q=80",
+      },
+      {
+        id: 8,
+        name: "Rest In Nature T-Shirt Charcoal",
+        price: "$104.95",
+        rating: 4,
+        reviews: 1234,
+        badge: "Best Seller",
+        image:      "https://images.unsplash.com/photo-1608667508764-33cf0726b13a?w=600&q=80",
+        imageHover: "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&q=80",
+      },
+      {
+        id: 9,
+        name: "Outside Vibes Cap Forest Green",
+        price: "$104.95",
+        rating: 4,
+        reviews: 1234,
+        badge: "Best Seller",
+        image:      "https://images.unsplash.com/photo-1686152059022-7622bbda31c6?w=600&q=80",
+        imageHover: "https://images.unsplash.com/photo-1686152027649-aabdbb4a988a?w=600&q=80",
+      },
+      {
+        id: 10,
+        name: "Rest In Nature T-Shirt Charcoal",
+        price: "$104.95",
+        rating: 5,
+        reviews: 876,
+        badge: "Best Seller",
+        image:      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600&q=80",
+        imageHover: "https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?w=600&q=80",
+      }
+  ];
+  
