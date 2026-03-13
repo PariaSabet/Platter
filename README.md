@@ -84,7 +84,8 @@ Only the things Tailwind can't do:
 - Animates the custom scrollbar thumb height on hover and drag
 
 ## Shopify Liquid Version
-> [Live Preview](https://pariaaa.myshopify.com/?preview_theme_id=159209488637) 
+> [Live Preview](https://pariaaa.myshopify.com/?preview_theme_id=159209488637)
+> password: towdot
 >
 > **Note:** The HTML version is built pixel-perfect to the original design spec.
 > The Shopify version mirrors the same structure and functionality but may have 
