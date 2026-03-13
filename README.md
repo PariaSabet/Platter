@@ -86,6 +86,10 @@ Only the things Tailwind can't do:
 ## Shopify Liquid Version
 > [Live Preview](https://pariaaa.myshopify.com/?preview_theme_id=159209488637)
 > password: towdot
+> 
+> [theme editor](https://pariaaa.myshopify.com/admin/themes/159209488637/editor?hr=9292)
+> 
+> [github link](https://github.com/PariaSabet/Horizon-theme)
 >
 > **Note:** The HTML version is built pixel-perfect to the original design spec.
 > The Shopify version mirrors the same structure and functionality but may have 
